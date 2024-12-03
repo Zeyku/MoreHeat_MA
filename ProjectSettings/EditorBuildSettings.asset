@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Beach.unity
+    guid: 7bdbf409b1af6d641b9faa229bd7ab23
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 0e5a4ac87ef9be94caf60f7e99746402,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 478771e0bc99c714fbc6eca9c9aa1b65,
+      type: 2}

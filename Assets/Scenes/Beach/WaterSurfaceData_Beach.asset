@@ -1,0 +1,242 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17284ebf5e80436eb6089f8c7459dab, type: 3}
+  m_Name: WaterSurfaceData_Beach
+  m_EditorClassIdentifier: 
+  _waterMaxVisibility: 3
+  _absorptionRamp:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 0.18431371, g: 0.67898715, b: 1, a: 1}
+    key2: {r: 0.023529412, g: 0.36580455, b: 0.50980395, a: 0}
+    key3: {r: 0.27033645, g: 0.57897055, b: 0.764151, a: 0}
+    key4: {r: 0.06674973, g: 0.37943518, b: 0.5660378, a: 0}
+    key5: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 6746
+    ctime2: 34695
+    ctime3: 53777
+    ctime4: 63029
+    ctime5: 65535
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: 0
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 2
+  _scatterRamp:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 0.53729594, g: 0.63651514, b: 0.64068407, a: 1}
+    key2: {r: 0.4661159, g: 0.5805985, b: 0.5854087, a: 0}
+    key3: {r: 0.46407977, g: 0.578999, b: 0.5838275, a: 0}
+    key4: {r: 0.4533197, g: 0.5705462, b: 0.5754717, a: 0}
+    key5: {r: 0.28662333, g: 0.5296354, b: 0.5377358, a: 0}
+    key6: {r: 0.037824854, g: 0.20577584, b: 0.4716981, a: 0}
+    key7: {r: 0, g: 0.45552582, b: 0.6132076, a: 0}
+    ctime0: 0
+    ctime1: 14649
+    ctime2: 26021
+    ctime3: 30840
+    ctime4: 34502
+    ctime5: 40863
+    ctime6: 55512
+    ctime7: 65535
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: 0
+    m_NumColorKeys: 8
+    m_NumAlphaKeys: 2
+  _waves:
+  - amplitude: 1
+    direction: -6.03
+    wavelength: 10
+    origin:
+      x: -146.4
+      y: 326.2
+    onmiDir: 1
+  - amplitude: 0.9
+    direction: 166
+    wavelength: 8
+    origin:
+      x: 0
+      y: 0
+    onmiDir: 0
+  - amplitude: 0.5
+    direction: 6.532788
+    wavelength: 7.455916
+    origin:
+      x: -63.14
+      y: 931.6
+    onmiDir: 1
+  - amplitude: 0.7
+    direction: 4.051435
+    wavelength: 4.6626315
+    origin:
+      x: -72.74
+      y: -16.01
+    onmiDir: 1
+  - amplitude: 0.5
+    direction: 180
+    wavelength: 2.6733496
+    origin:
+      x: -50.43
+      y: 0
+    onmiDir: 0
+  - amplitude: 0.5
+    direction: -151
+    wavelength: 2.9848163
+    origin:
+      x: 0
+      y: 0
+    onmiDir: 0
+  _customWaves: 0
+  randomSeed: 891
+  _basicWaveSettings:
+    numWaves: 5
+    amplitude: 0.1
+    direction: -176
+    wavelength: 5
+  _foamSettings:
+    foamType: 0
+    basicFoam:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.60849
+        outSlope: 0.60849
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.60849
+        inSlope: 0.60849
+        outSlope: 0.60849
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    liteFoam:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.4
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.7
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    mediumFoam:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.7
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    denseFoam:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.7
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  _init: 1

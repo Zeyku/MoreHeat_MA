@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTypeDate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <TypeDate>
+    <guid>3d6394ae955d07847aa1405d3cb27c03</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/AssetCollector.cs</fileName>
+    <timeStamp>2024-12-03T21:05:25.3827856+01:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.AssetCollector</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>0f084f174d0b5ff409e5375240186381</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/AssetReferenceCollection.cs</fileName>
+    <timeStamp>2024-12-03T21:05:25.4044699+01:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.AssetReferenceCollection</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>b7ed1b678fd8773489344a2788d82b07</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/ClassReferenceCollection.cs</fileName>
+    <timeStamp>2024-12-03T21:05:25.423633+01:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.ClassReferenceCollection</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>cbe03f960c2bead47a76a29d017f2875</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/CollectionData.cs</fileName>
+    <timeStamp>2024-12-03T21:05:25.4424843+01:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.CollectionData</string>
+      <string>UnitySweeper.TypeDate</string>
+      <string>UnitySweeper.IReferenceCollection</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c308394be1ab2d34fbeb9282c0f85495</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/FindUnusedAssetsWindow.cs</fileName>
+    <timeStamp>2024-12-03T21:05:25.4617439+01:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.FindUnusedAssetsWindow</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>ee9e2f616f439ab42a49e2d274876f84</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/ShaderReferenceCollection.cs</fileName>
+    <timeStamp>2024-12-03T21:05:25.4825887+01:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.ShaderReferenceCollection</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>6b10f5953d120414ea705c3e34eb8b58</guid>
+    <fileName>Assets/Scripts/CubeAmountTracker.cs</fileName>
+    <timeStamp>2024-12-03T20:06:15.1504597+01:00</timeStamp>
+    <typeFullName>
+      <string>CubeAmountTracker</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>ff8997db23fd9fb45958ed63e9f30b5c</guid>
+    <fileName>Assets/Scripts/DisplayHeight.cs</fileName>
+    <timeStamp>2024-11-07T22:30:49.6099962+01:00</timeStamp>
+    <typeFullName>
+      <string>DisplayHeight</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>af328e40d4562bf4cae4b1d43d50d661</guid>
+    <fileName>Assets/Scripts/HeightController.cs</fileName>
+    <timeStamp>2024-11-07T22:05:38.48962+01:00</timeStamp>
+    <typeFullName>
+      <string>HeightController</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>6caa87fe6c327ec4191581751b975d06</guid>
+    <fileName>Assets/Scripts/RespawnCube.cs</fileName>
+    <timeStamp>2024-11-08T12:20:21.9803492+01:00</timeStamp>
+    <typeFullName>
+      <string>RespawnCube</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2018d684352a717489210cbace066451</guid>
+    <fileName>Assets/Scripts/SortHitboxCollider.cs</fileName>
+    <timeStamp>2024-12-03T20:00:50.7279556+01:00</timeStamp>
+    <typeFullName>
+      <string>SortHitboxCollider</string>
+      <string>SortHitboxCollider+CubeSorted</string>
+      <string>SortHitboxCollider+Color</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>a59f4db47f9fe476ebfed49311c9a09b</guid>
+    <fileName>Assets/4K Tiled Ground Textures p1/Scripts/AutoSpriteChanger_gp1.cs</fileName>
+    <timeStamp>2024-04-29T23:16:06+02:00</timeStamp>
+    <typeFullName>
+      <string>AutoSpriteChanger_gp1</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>f94c972f9cb764449bb5b8d87e72a9dd</guid>
+    <fileName>Assets/Daz3D/Scripts/ClothCollisionAssigner.cs</fileName>
+    <timeStamp>2022-05-21T04:49:26+02:00</timeStamp>
+    <typeFullName>
+      <string>ClothCollisionAssigner</string>
+      <string>ClothCollisionAssigner+ClothConfig</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>ca56b19cbb5048c469eb0727b9996e9f</guid>
+    <fileName>Assets/Daz3D/Scripts/ClothTools.cs</fileName>
+    <timeStamp>2022-05-21T04:49:26+02:00</timeStamp>
+    <typeFullName>
+      <string>ClothTools</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>62b7ba0c93dd725489c7ba1e1003f66f</guid>
+    <fileName>Assets/Daz3D/Scripts/CollapsedVertexArray.cs</fileName>
+    <timeStamp>2022-05-21T04:49:26+02:00</timeStamp>
+    <typeFullName>
+      <string>CollapsedVertexArray</string>
+      <string>CollapsedVertexArray+CollapsedVertex</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>5a237cd1edabd402bb18b45be88b01ed</guid>
+    <fileName>Assets/Daz3D/Scripts/Daz3DInstance.cs</fileName>
+    <timeStamp>2022-05-21T04:49:26+02:00</timeStamp>
+    <typeFullName>
+      <string>Daz3D.Daz3DInstance</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>6675556b1ece044239c13627e6d7028d</guid>
+    <fileName>Assets/Daz3D/Scripts/Utilities.cs</fileName>
+    <timeStamp>2022-05-21T04:49:26+02:00</timeStamp>
+    <typeFullName>
+      <string>Daz3D.Utilities</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9f4d12fcd6c214c73b31a1d65f830715</guid>
+    <fileName>Assets/Daz3D/Vendors/SimpleJSON.cs</fileName>
+    <timeStamp>2022-05-21T04:49:26+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>77c62d2a40e848d44b542da522451282</guid>
+    <fileName>Assets/8K Skybox Pack Free/Example Scenes/Script/RotateCamera.cs</fileName>
+    <timeStamp>2020-07-11T11:29:17+02:00</timeStamp>
+    <typeFullName>
+      <string>RotateCamera</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c72016c772ee8d046bd0fb2333dbdd7d</guid>
+    <fileName>Assets/Daz3D/Scripts/Editor/ClothCollisionAssignerEditor.cs</fileName>
+    <timeStamp>2022-05-21T04:49:26+02:00</timeStamp>
+    <typeFullName>
+      <string>ClothCollisionAssignerEditor</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d931b53394f92c44ca2c1264a9dc9f88</guid>
+    <fileName>Assets/Daz3D/Scripts/Editor/ClothToolsEditor.cs</fileName>
+    <timeStamp>2022-05-21T04:49:26+02:00</timeStamp>
+    <typeFullName>
+      <string>ClothToolsEditor</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>422e32357dbbe49ea8ef244a2b2287ec</guid>
+    <fileName>Assets/Daz3D/Scripts/Editor/Daz3DBridge.cs</fileName>
+    <timeStamp>2023-06-28T08:12:42+02:00</timeStamp>
+    <typeFullName>
+      <string>Daz3D.Daz3DBridge</string>
+      <string>Daz3D.Daz3DBridge+ToolbarMode</string>
+      <string>Daz3D.OrnamenfftDTUFileInProjectWindow</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>74b20127438474d259671807b26b59f2</guid>
+    <fileName>Assets/Daz3D/Scripts/Editor/Daz3DDTUImporter.cs</fileName>
+    <timeStamp>2023-08-10T17:25:49+02:00</timeStamp>
+    <typeFullName>
+      <string>Daz3D.Daz3DDTUImporter</string>
+      <string>Daz3D.Daz3DDTUImporter+ImportEventRecord</string>
+      <string>Daz3D.Daz3DDTUImporter+DazFigurePlatform</string>
+      <string>Daz3D.Daz3DDTUImporter+MaterialMap</string>
+      <string>Daz3D.Daz3DDTUImporter+DForceMaterial</string>
+      <string>Daz3D.Daz3DDTUImporter+DForceMaterialMap</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>a32578eafb27a4ac79e297f68260f0bf</guid>
+    <fileName>Assets/Daz3D/Scripts/Editor/DazCoroutine.cs</fileName>
+    <timeStamp>2022-05-21T04:49:26+02:00</timeStamp>
+    <typeFullName>
+      <string>Daz3D.DazCoroutine</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>69b7753464d84409ca1d1beb6644f2dd</guid>
+    <fileName>Assets/Daz3D/Scripts/Editor/DazJSONHelper.cs</fileName>
+    <timeStamp>2022-05-21T04:49:26+02:00</timeStamp>
+    <typeFullName>
+      <string>Daz3D.DazJSONHelper</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>a7f6a4090d16c4a41afe1f287d606130</guid>
+    <fileName>Assets/Daz3D/Scripts/Editor/DetectRenderPipeline.cs</fileName>
+    <timeStamp>2022-05-21T04:49:26+02:00</timeStamp>
+    <typeFullName>
+      <string>DetectRenderPipeline</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>815bdb69e76ae41c183fe950d5e58fbb</guid>
+    <fileName>Assets/Daz3D/Scripts/Editor/DTUConverter.cs</fileName>
+    <timeStamp>2023-06-28T08:12:42+02:00</timeStamp>
+    <typeFullName>
+      <string>Daz3D.DTU_Constants</string>
+      <string>Daz3D.DTU</string>
+      <string>Daz3D.DTUMaterial</string>
+      <string>Daz3D.DTUMaterialProperty</string>
+      <string>Daz3D.DTUValue</string>
+      <string>Daz3D.DTUConverter</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+</ArrayOfTypeDate>
