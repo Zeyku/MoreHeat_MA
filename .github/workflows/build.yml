@@ -1,0 +1,47 @@
+# from: https://game.ci/docs/
+# targetPlatform values: https://docs.unity3d.com/ScriptReference/BuildTarget.html
+
+name: Build Unity Project
+on:
+  push:
+    branches:
+      - develop
+      - main
+
+jobs:
+  build-win:
+    name: Build Game for Windows
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        # Uncomment if LFS is used
+        with:
+          lfs: true
+
+      # Cache Unity project files
+      - name: Cache Library
+        uses: actions/cache@v3
+        with:
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-
+
+      # Build Unity project
+      - name: Build project for Windows
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: StandaloneWindows64
+
+      # Upload build artifact
+      - name: Upload Build as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-windows
+          path: build
