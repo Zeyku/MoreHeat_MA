@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Meta.XR.MultiplayerBlocks.Fusion.Editor;
-using Oculus.Interaction.DebugTree;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
 public class SortHitboxCollider : MonoBehaviour
