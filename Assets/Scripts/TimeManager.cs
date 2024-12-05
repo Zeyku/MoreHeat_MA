@@ -9,7 +9,7 @@ public class TimeManager : MonoBehaviour
     public TextMeshProUGUI timer;
     public AudioSource audioSource;
     private float elapsedTime = 0.0f;
-    private float nextEventTime = 5f;
+    private float nextEventTime = 90f;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +30,7 @@ public class TimeManager : MonoBehaviour
         if (elapsedTime >= nextEventTime)
         {
             TriggerEvent();
-            nextEventTime += 5f;
+            nextEventTime += 90f;
         }
     }
 
