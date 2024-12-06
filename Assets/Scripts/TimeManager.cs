@@ -10,6 +10,11 @@ public class TimeManager : MonoBehaviour
     public AudioSource audioSource;
     private float elapsedTime = 0.0f;
     private float nextEventTime = 90f;
+
+    //event needed for QuestionnaireManager (Thermal Sensation)
+    public delegate void NinetySecondsPassed();
+    public static NinetySecondsPassed OnNinetySecondsPassed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +45,7 @@ public class TimeManager : MonoBehaviour
         {
             Debug.Log("90 seconds have passed");
             audioSource.Play();
+            OnNinetySecondsPassed?.Invoke();
         }
         else
         {
