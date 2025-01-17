@@ -9743,7 +9743,7 @@ RenderTexture:
   m_TextureSettings:
     serializedVersion: 2
     m_FilterMode: 1
-    m_Aniso: 1
+    m_Aniso: 0
     m_MipBias: 0
     m_WrapU: 1
     m_WrapV: 1
@@ -63874,6 +63874,21 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 473585210}
+    - target: {fileID: 3598013025869031919, guid: 9b4605142c7ba574bb886c93768ad8a8,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3598013025869031919, guid: 9b4605142c7ba574bb886c93768ad8a8,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3598013025869031919, guid: 9b4605142c7ba574bb886c93768ad8a8,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4229889952821644058, guid: 9b4605142c7ba574bb886c93768ad8a8,
         type: 3}
       propertyPath: m_Mesh
@@ -63899,6 +63914,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 806541626}
+    - target: {fileID: 5414677201358690623, guid: 9b4605142c7ba574bb886c93768ad8a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5575925515301958683, guid: 9b4605142c7ba574bb886c93768ad8a8,
         type: 3}
       propertyPath: m_Mesh
@@ -63993,6 +64013,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VersionIndex
       value: 1133
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733478172605849032, guid: 9b4605142c7ba574bb886c93768ad8a8,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733478172605849032, guid: 9b4605142c7ba574bb886c93768ad8a8,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8743760901449479618, guid: 9b4605142c7ba574bb886c93768ad8a8,
         type: 3}

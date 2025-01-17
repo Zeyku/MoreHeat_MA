@@ -8,14 +8,15 @@ using System;
 
 public class QuestionnaireManager : MonoBehaviour
 {
-
-    private string questionnaireFilePath = Application.dataPath + "/CSV-Data/thermalPerception.csv";
+    
     private TextWriter writer;
+
+    //thermal perception questionnaire
+    private string thermalSensationQuestionnaireFilePath = Application.dataPath + "/CSV-Data/thermalSensation.csv";
     private float[] thermalSensationValues = new float[3];
     private DateTime[] thermalSensationTimeStamps = new DateTime[3];
-    private int questionnaireCounter = 0;
-    private bool isQuestionnaireDone = false;
-
+    private int thermalSensationCounter = 0;
+    private bool isThermalSensationDone = false;
     public Slider slider;
     public GameObject thermalSensationUI;
 
@@ -24,6 +25,9 @@ public class QuestionnaireManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Invoke("showThermalSensationQuestionnaire", 120f); //30+90 seconds after start
+        Invoke("showThermalSensationQuestionnaire", 210f);  //30+180 seconds after start
+        Invoke("showThermalSensationQuestionnaire", 300f);  //30+270 seconds after start
         
     }
 
@@ -34,15 +38,13 @@ public class QuestionnaireManager : MonoBehaviour
     }
 
     void OnEnable(){
-        TimeManager.OnNinetySecondsPassed += showQuestionnaire;
     }
 
     void OnDisable(){
-        TimeManager.OnNinetySecondsPassed -= showQuestionnaire;
     }
 
-    private void showQuestionnaire(){
-        if(!isQuestionnaireDone){
+    private void showThermalSensationQuestionnaire(){
+        if(!isThermalSensationDone){
             slider.value = 50;
             thermalSensationUI.SetActive(true); 
         }else{
@@ -51,35 +53,36 @@ public class QuestionnaireManager : MonoBehaviour
         
     }
 
-    private void hideQuestionnaire(){
+    private void hideThermalSensationQuestionnaire(){
         thermalSensationUI.SetActive(false);
     }
 
     public void confirmInput(){
-        if(questionnaireCounter <= 2){
-            thermalSensationValues[questionnaireCounter] = slider.value;
-            thermalSensationTimeStamps[questionnaireCounter] = DateTime.Now;
-            questionnaireCounter++;
+        //gets called on button press in canvas 
+        if(thermalSensationCounter <= 2){
+            thermalSensationValues[thermalSensationCounter] = slider.value;
+            thermalSensationTimeStamps[thermalSensationCounter] = DateTime.Now;
+            thermalSensationCounter++;
         }
 
-        if(questionnaireCounter > 2){
-            writeDataToCSV();
-            isQuestionnaireDone = true;
+        if(thermalSensationCounter > 2){
+            writeThermalSensationDataToCSV();
+            isThermalSensationDone = true;
             
         }
         
-        hideQuestionnaire();
+        hideThermalSensationQuestionnaire();
     }
 
-    private void writeDataToCSV(){
+    private void writeThermalSensationDataToCSV(){
         string header = "thermal_sensation_90;thermal_sensation_180;thermal_sensation_270;timestamp_90;timestamp_180;timestamp_270";
-        writer = new StreamWriter(questionnaireFilePath, true);
+        writer = new StreamWriter(thermalSensationQuestionnaireFilePath, true);
         writer.WriteLine(header);
 
         string answers = string.Join(";",thermalSensationValues);
         string timestamps = string.Join(";",thermalSensationTimeStamps);
         writer.WriteLine(answers + ";" + timestamps);
         writer.Close();
-        Debug.Log("Questionnaire data written to CSV");
+        Debug.Log("Thermal Sensation data written to CSV");
     }
 }
