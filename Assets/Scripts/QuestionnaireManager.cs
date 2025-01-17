@@ -20,11 +20,17 @@ public class QuestionnaireManager : MonoBehaviour
     public Slider slider;
     public GameObject thermalSensationUI;
 
+    //thermal comfort questionnaire
+    public GameObject thermalComfortUI;
+    private string thermalComfortQuestionnaireFilePath = Application.dataPath + "/CSV-Data/thermalComfort.csv";
 
+    //IPQ questionnaire
+    //BRQ questionnaire
 
     // Start is called before the first frame update
     void Start()
     {
+        //30 seconds acclimatization period
         Invoke("showThermalSensationQuestionnaire", 120f); //30+90 seconds after start
         Invoke("showThermalSensationQuestionnaire", 210f);  //30+180 seconds after start
         Invoke("showThermalSensationQuestionnaire", 300f);  //30+270 seconds after start
@@ -57,7 +63,7 @@ public class QuestionnaireManager : MonoBehaviour
         thermalSensationUI.SetActive(false);
     }
 
-    public void confirmInput(){
+    public void confirmThermalSensationInput(){
         //gets called on button press in canvas 
         if(thermalSensationCounter <= 2){
             thermalSensationValues[thermalSensationCounter] = slider.value;
