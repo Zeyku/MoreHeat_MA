@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.IO;
 using System;
+using System.Linq;
 
 public class QuestionnaireManager : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class QuestionnaireManager : MonoBehaviour
     //thermal comfort questionnaire
     public GameObject thermalComfortUI;
     private string thermalComfortQuestionnaireFilePath = Application.dataPath + "/CSV-Data/thermalComfort.csv";
+
+    public ToggleGroup thermalComfortToggleGroup;
 
     //IPQ questionnaire
     //BRQ questionnaire
@@ -78,6 +81,20 @@ public class QuestionnaireManager : MonoBehaviour
         }
         
         hideThermalSensationQuestionnaire();
+    }
+
+    public void confirmThermalComfortInput(){
+        //gets called on button press in canvas
+        Toggle toggle = thermalComfortToggleGroup.ActiveToggles().FirstOrDefault(); 
+        if(toggle != null){
+            string answer = toggle.GetComponentInChildren<TextMeshProUGUI>().text;
+            Debug.Log("Comfort Answer: " + answer);
+            //funktion noch schreiben
+            //conditionally set active oben bei invoke
+            writeThermalComfortDataToCSV(answer);
+        }
+        writeThermalComfortDataToCSV();
+        thermalComfortUI.SetActive(false);
     }
 
     private void writeThermalSensationDataToCSV(){
