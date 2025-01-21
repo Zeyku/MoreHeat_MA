@@ -14,6 +14,7 @@ public class QuestionnaireManager : MonoBehaviour
     private TextWriter writerThermalComfort;
 
     //thermal perception questionnaire
+    [Header("Thermal Sensation Questionnaire")]
     private string thermalSensationQuestionnaireFilePath = Application.dataPath + "/CSV-Data/thermalSensation.csv";
     private float[] thermalSensationValues = new float[3];
     private DateTime[] thermalSensationTimeStamps = new DateTime[3];
@@ -23,6 +24,7 @@ public class QuestionnaireManager : MonoBehaviour
     public GameObject thermalSensationUI;
 
     //thermal comfort questionnaire
+    [Header("Thermal Comfort Questionnaire")]
     public GameObject thermalComfortUI;
     private string thermalComfortQuestionnaireFilePath = Application.dataPath + "/CSV-Data/thermalComfort.csv";
 
@@ -30,6 +32,14 @@ public class QuestionnaireManager : MonoBehaviour
     public ToggleGroup thermalComfortToggleGroup;
 
     //IPQ questionnaire
+    [Header("IPQ Questionnaire")]
+    public GameObject ipqUI; //object muss noch erstellt werden!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public ToggleGroup ipqToggleGroup;
+
+    public TextMeshProUGUI ipqQuestionText;
+    public TextMeshProUGUI leftTextAnchor;
+    public TextMeshProUGUI rightTextAnchor;
+    private string ipqQuestionnaireFilePath = Application.dataPath + "/CSV-Data/ipq.csv";
     //BRQ questionnaire
 
     // Start is called before the first frame update
@@ -92,7 +102,7 @@ public class QuestionnaireManager : MonoBehaviour
         if(toggle != null){
             string answer = toggle.name;
             Debug.Log("Comfort Answer: " + answer);
-            //conditionally set active oben bei invoke
+            
             writeThermalComfortDataToCSV(answer);
             thermalComfortUI.SetActive(false);
             isThermalComfortDone = true;
