@@ -10,7 +10,8 @@ using System.Linq;
 public class QuestionnaireManager : MonoBehaviour
 {
     
-    private TextWriter writer;
+    private TextWriter writerThermalSensation;
+    private TextWriter writerThermalComfort;
 
     //thermal perception questionnaire
     private string thermalSensationQuestionnaireFilePath = Application.dataPath + "/CSV-Data/thermalSensation.csv";
@@ -25,6 +26,7 @@ public class QuestionnaireManager : MonoBehaviour
     public GameObject thermalComfortUI;
     private string thermalComfortQuestionnaireFilePath = Application.dataPath + "/CSV-Data/thermalComfort.csv";
 
+    private bool isThermalComfortDone = false;
     public ToggleGroup thermalComfortToggleGroup;
 
     //IPQ questionnaire
@@ -34,9 +36,9 @@ public class QuestionnaireManager : MonoBehaviour
     void Start()
     {
         //30 seconds acclimatization period
-        Invoke("showThermalSensationQuestionnaire", 120f); //30+90 seconds after start
-        Invoke("showThermalSensationQuestionnaire", 210f);  //30+180 seconds after start
-        Invoke("showThermalSensationQuestionnaire", 300f);  //30+270 seconds after start
+        Invoke("showThermalSensationQuestionnaire", 10f); //30+90 seconds after start
+        Invoke("showThermalSensationQuestionnaire", 20f);  //30+180 seconds after start
+        Invoke("showThermalSensationQuestionnaire", 30f);  //30+270 seconds after start
         
     }
 
@@ -75,37 +77,46 @@ public class QuestionnaireManager : MonoBehaviour
         }
 
         if(thermalSensationCounter > 2){
+            //thermal sensation questionnaire done
             writeThermalSensationDataToCSV();
             isThermalSensationDone = true;
-            
+            thermalComfortUI.SetActive(true);
         }
         
-        hideThermalSensationQuestionnaire();
+        hideThermalSensationQuestionnaire();   
     }
 
     public void confirmThermalComfortInput(){
         //gets called on button press in canvas
         Toggle toggle = thermalComfortToggleGroup.ActiveToggles().FirstOrDefault(); 
         if(toggle != null){
-            string answer = toggle.GetComponentInChildren<TextMeshProUGUI>().text;
+            string answer = toggle.name;
             Debug.Log("Comfort Answer: " + answer);
-            //funktion noch schreiben
             //conditionally set active oben bei invoke
             writeThermalComfortDataToCSV(answer);
-        }
-        writeThermalComfortDataToCSV();
-        thermalComfortUI.SetActive(false);
+            thermalComfortUI.SetActive(false);
+            isThermalComfortDone = true;
+        } 
     }
 
+    private void writeThermalComfortDataToCSV(string answer){
+        string header = "thermal_comfort;timestamp";
+        writerThermalComfort = new StreamWriter(thermalComfortQuestionnaireFilePath, true);
+        writerThermalComfort.WriteLine(header);
+
+        writerThermalComfort.WriteLine(answer + ";" + DateTime.Now);
+        writerThermalComfort.Close();
+        Debug.Log("Thermal Comfort data written to CSV");
+    }
     private void writeThermalSensationDataToCSV(){
         string header = "thermal_sensation_90;thermal_sensation_180;thermal_sensation_270;timestamp_90;timestamp_180;timestamp_270";
-        writer = new StreamWriter(thermalSensationQuestionnaireFilePath, true);
-        writer.WriteLine(header);
+        writerThermalSensation = new StreamWriter(thermalSensationQuestionnaireFilePath, true);
+        writerThermalSensation.WriteLine(header);
 
         string answers = string.Join(";",thermalSensationValues);
         string timestamps = string.Join(";",thermalSensationTimeStamps);
-        writer.WriteLine(answers + ";" + timestamps);
-        writer.Close();
+        writerThermalSensation.WriteLine(answers + ";" + timestamps);
+        writerThermalSensation.Close();
         Debug.Log("Thermal Sensation data written to CSV");
     }
 }

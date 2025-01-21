@@ -1942,7 +1942,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 92095744}
-  - component: {fileID: 92095747}
   - component: {fileID: 92095746}
   - component: {fileID: 92095745}
   m_Layer: 5
@@ -2105,14 +2104,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &92095747
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92095743}
-  m_CullTransparentMesh: 1
 --- !u!1 &103262222
 GameObject:
   m_ObjectHideFlags: 0
@@ -6356,7 +6347,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1113435291}
         m_TargetAssemblyTypeName: QuestionnaireManager, Assembly-CSharp
-        m_MethodName: confirmThermalSensationInput
+        m_MethodName: confirmThermalComfortInput
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6827,7 +6818,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 332668122}
-  - component: {fileID: 332668125}
   - component: {fileID: 332668124}
   - component: {fileID: 332668123}
   m_Layer: 5
@@ -6990,14 +6980,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &332668125
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332668121}
-  m_CullTransparentMesh: 1
 --- !u!1 &333001137
 GameObject:
   m_ObjectHideFlags: 0
@@ -11981,7 +11963,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 622827025}
-  - component: {fileID: 622827028}
   - component: {fileID: 622827027}
   - component: {fileID: 622827026}
   m_Layer: 5
@@ -12144,14 +12125,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &622827028
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 622827024}
-  m_CullTransparentMesh: 1
 --- !u!1 &623762578
 GameObject:
   m_ObjectHideFlags: 0
@@ -12705,7 +12678,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 666128870}
-  - component: {fileID: 666128873}
   - component: {fileID: 666128872}
   - component: {fileID: 666128871}
   m_Layer: 5
@@ -12868,14 +12840,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &666128873
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666128869}
-  m_CullTransparentMesh: 1
 --- !u!1 &671075541
 GameObject:
   m_ObjectHideFlags: 0
@@ -15842,7 +15806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &848505715
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20943,44 +20907,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.008180305, y: -0.0053694975, z: -0.020344593}
     m_Extent: {x: 0.046097815, y: 0.067293465, z: 0.0557265}
   m_DirtyAABB: 0
---- !u!84 &1085276287
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WaterDepthMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 1024
-  m_Height: 1024
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1 &1091033585
 GameObject:
   m_ObjectHideFlags: 0
@@ -21854,7 +21780,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1558946085}
   thermalSensationUI: {fileID: 1749566774}
-  thermalComfortUI: {fileID: 0}
+  thermalComfortUI: {fileID: 848505714}
+  thermalComfortToggleGroup: {fileID: 380894837}
 --- !u!4 &1113435292
 Transform:
   m_ObjectHideFlags: 0
@@ -23347,7 +23274,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1224832171}
-  - component: {fileID: 1224832174}
   - component: {fileID: 1224832173}
   - component: {fileID: 1224832172}
   m_Layer: 5
@@ -23510,14 +23436,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &1224832174
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224832170}
-  m_CullTransparentMesh: 1
 --- !u!1 &1226009153
 GameObject:
   m_ObjectHideFlags: 0
@@ -27468,6 +27386,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1913995809}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!84 &1475173486
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1 &1475259669
 GameObject:
   m_ObjectHideFlags: 0
@@ -35155,7 +35111,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1853682282}
-  - component: {fileID: 1853682285}
   - component: {fileID: 1853682284}
   - component: {fileID: 1853682283}
   m_Layer: 5
@@ -35320,14 +35275,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &1853682285
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853682281}
-  m_CullTransparentMesh: 1
 --- !u!1 &1855698699
 GameObject:
   m_ObjectHideFlags: 0
@@ -39474,7 +39421,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2109122946}
-  - component: {fileID: 2109122949}
   - component: {fileID: 2109122948}
   - component: {fileID: 2109122947}
   m_Layer: 5
@@ -39639,14 +39585,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &2109122949
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2109122945}
-  m_CullTransparentMesh: 1
 --- !u!1 &2110637650
 GameObject:
   m_ObjectHideFlags: 0
@@ -64100,7 +64038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   computeOverride: 0
-  _depthTex: {fileID: 1085276287}
+  _depthTex: {fileID: 1475173486}
   bakedDepthTex: {fileID: 0}
   _waves:
   - amplitude: 0.050900437
@@ -67780,7 +67718,7 @@ PrefabInstance:
     - target: {fileID: 4411235965481833594, guid: 9b4605142c7ba574bb886c93768ad8a8,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1133
+      value: 1136
       objectReference: {fileID: 0}
     - target: {fileID: 4852891711400505510, guid: 9b4605142c7ba574bb886c93768ad8a8,
         type: 3}
@@ -67792,6 +67730,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 806541626}
+    - target: {fileID: 5414677201358690623, guid: 9b4605142c7ba574bb886c93768ad8a8,
+        type: 3}
+      propertyPath: m_Name
+      value: Thermal Sensation (Canvas)
+      objectReference: {fileID: 0}
     - target: {fileID: 5414677201358690623, guid: 9b4605142c7ba574bb886c93768ad8a8,
         type: 3}
       propertyPath: m_IsActive
@@ -67895,7 +67838,7 @@ PrefabInstance:
     - target: {fileID: 8715103794454131436, guid: 9b4605142c7ba574bb886c93768ad8a8,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1133
+      value: 1136
       objectReference: {fileID: 0}
     - target: {fileID: 8733478172605849032, guid: 9b4605142c7ba574bb886c93768ad8a8,
         type: 3}
@@ -67915,7 +67858,7 @@ PrefabInstance:
     - target: {fileID: 8743760901449479618, guid: 9b4605142c7ba574bb886c93768ad8a8,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1133
+      value: 1136
       objectReference: {fileID: 0}
     - target: {fileID: 9054508389073005316, guid: 9b4605142c7ba574bb886c93768ad8a8,
         type: 3}
@@ -67925,7 +67868,7 @@ PrefabInstance:
     - target: {fileID: 9054508389073005316, guid: 9b4605142c7ba574bb886c93768ad8a8,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1133
+      value: 1136
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
