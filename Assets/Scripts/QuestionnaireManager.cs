@@ -12,6 +12,7 @@ public class QuestionnaireManager : MonoBehaviour
     
     private TextWriter writerThermalSensation;
     private TextWriter writerThermalComfort;
+    private TextWriter writerIPQ;
 
     //thermal perception questionnaire
     [Header("Thermal Sensation Questionnaire")]
@@ -33,18 +34,36 @@ public class QuestionnaireManager : MonoBehaviour
 
     //IPQ questionnaire
     [Header("IPQ Questionnaire")]
-    public GameObject ipqUI; //object muss noch erstellt werden!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public GameObject ipqUI;
     public ToggleGroup ipqToggleGroup;
 
     public TextMeshProUGUI ipqQuestionText;
-    public TextMeshProUGUI leftTextAnchor;
-    public TextMeshProUGUI rightTextAnchor;
+    public TextMeshPro leftTextAnchor;
+    public TextMeshPro rightTextAnchor;
     private string ipqQuestionnaireFilePath = Application.dataPath + "/CSV-Data/ipq.csv";
+
+    private IPQ_Question[] ipq_questions;
+    private string[] ipqItemCodes;
+    private string[] ipq_answers;
+    public TextAsset ipqCSV;
+    
+    private int currentQuestion = 0;
+    private bool isIPQDone = false;
+
     //BRQ questionnaire
+    [Header("BRQ Questionnaire")]
+    public GameObject brqUI;
+    public ToggleGroup brqToggleGroup;
+
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
+        loadIPQQuestionsFromFile();
+        setIPQQuestion(); //set first question
+        
         //30 seconds acclimatization period
         Invoke("showThermalSensationQuestionnaire", 10f); //30+90 seconds after start
         Invoke("showThermalSensationQuestionnaire", 20f);  //30+180 seconds after start
@@ -106,9 +125,71 @@ public class QuestionnaireManager : MonoBehaviour
             writeThermalComfortDataToCSV(answer);
             thermalComfortUI.SetActive(false);
             isThermalComfortDone = true;
+            ipqUI.SetActive(true);
         } 
     }
 
+    private void loadIPQQuestionsFromFile(){
+        string[] lines = ipqCSV.text.Split('\n');
+
+        ipq_questions = new IPQ_Question[lines.Length];
+        ipqItemCodes = new string[lines.Length];
+        ipq_answers = new string[lines.Length];
+
+        for(int i = 0; i < lines.Length; i++){
+            string[] values = lines[i].Split(';');
+            
+            if(values.Length == 4){
+                ipqItemCodes[i] = values[0];
+                ipq_questions[i] = new IPQ_Question(values[1], values[2], values[3]);
+            }
+        }
+    }
+
+    private void setIPQQuestion(){
+        ipqQuestionText.text = ipq_questions[currentQuestion].get_question();
+        leftTextAnchor.text = ipq_questions[currentQuestion].get_negative_anchor();
+        rightTextAnchor.text = ipq_questions[currentQuestion].get_positive_anchor();
+    }
+
+    private void resetIPQToggles(){
+        Toggle[] toggles = ipqToggleGroup.GetComponentsInChildren<Toggle>();
+
+        foreach(Toggle toggle in toggles){
+            toggle.isOn = false;
+        }
+    }
+
+    public void confirmIPQInput(){
+        //gets called on button press in canvas
+        Toggle toggle = ipqToggleGroup.ActiveToggles().FirstOrDefault(); 
+
+        if(toggle != null){
+            ipq_answers[currentQuestion] = toggle.name;
+            Debug.Log("IPQ Answer: " + toggle.name);
+            
+            if(currentQuestion < ipq_questions.Length - 1){
+                currentQuestion++;
+                resetIPQToggles();
+                setIPQQuestion();
+            }else{
+                writeIPQDataToCSV();
+                ipqUI.SetActive(false);
+                isIPQDone = true;
+            }
+        }
+        
+    }
+
+    private void writeIPQDataToCSV(){
+        writerIPQ = new StreamWriter(ipqQuestionnaireFilePath, true);
+        string header = string.Join(";",ipqItemCodes);
+        writerIPQ.WriteLine(header);
+        string answers = string.Join(";",ipq_answers);
+        writerIPQ.WriteLine(answers);
+        writerIPQ.Close();
+        Debug.Log("IPQ data written to CSV");
+    }
     private void writeThermalComfortDataToCSV(string answer){
         string header = "thermal_comfort;timestamp";
         writerThermalComfort = new StreamWriter(thermalComfortQuestionnaireFilePath, true);
@@ -128,5 +209,34 @@ public class QuestionnaireManager : MonoBehaviour
         writerThermalSensation.WriteLine(answers + ";" + timestamps);
         writerThermalSensation.Close();
         Debug.Log("Thermal Sensation data written to CSV");
+    }
+}
+
+public class IPQ_Question
+{
+    private string question;
+    private string anchor_negative;
+    private string anchor_positive;
+
+    public IPQ_Question(string question, string anchor_negative, string anchor_positive)
+    {
+        this.question = question;
+        this.anchor_negative = anchor_negative;
+        this.anchor_positive = anchor_positive;
+    }
+
+    public string get_question()
+    {
+        return question;
+    }
+
+    public string get_positive_anchor()
+    {
+        return anchor_positive;
+    }
+
+    public string get_negative_anchor()
+    {
+        return anchor_negative;
     }
 }
