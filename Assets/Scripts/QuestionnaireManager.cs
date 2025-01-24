@@ -14,15 +14,16 @@ public class QuestionnaireManager : MonoBehaviour
     private TextWriter writerThermalComfort;
     private TextWriter writerIPQ;
 
-    //thermal perception questionnaire
+    //thermal sensation questionnaire
     [Header("Thermal Sensation Questionnaire")]
+    public Slider slider;
+    public GameObject thermalSensationUI;
     private string thermalSensationQuestionnaireFilePath = Application.dataPath + "/CSV-Data/thermalSensation.csv";
     private float[] thermalSensationValues = new float[3];
     private DateTime[] thermalSensationTimeStamps = new DateTime[3];
     private int thermalSensationCounter = 0;
     private bool isThermalSensationDone = false;
-    public Slider slider;
-    public GameObject thermalSensationUI;
+    
 
     //thermal comfort questionnaire
     [Header("Thermal Comfort Questionnaire")]
@@ -36,18 +37,18 @@ public class QuestionnaireManager : MonoBehaviour
     [Header("IPQ Questionnaire")]
     public GameObject ipqUI;
     public ToggleGroup ipqToggleGroup;
-
     public TextMeshProUGUI ipqQuestionText;
-    public TextMeshPro leftTextAnchor;
-    public TextMeshPro rightTextAnchor;
+    public TextMeshPro ipqLeftTextAnchor;
+    public TextMeshPro ipqRightTextAnchor;
     private string ipqQuestionnaireFilePath = Application.dataPath + "/CSV-Data/ipq.csv";
 
     private IPQ_Question[] ipq_questions;
     private string[] ipqItemCodes;
     private string[] ipq_answers;
+    private DateTime[] ipqTimeStamps;
     public TextAsset ipqCSV;
     
-    private int currentQuestion = 0;
+    private int ipqCurrentQuestion = 0;
     private bool isIPQDone = false;
 
     //BRQ questionnaire
@@ -55,8 +56,18 @@ public class QuestionnaireManager : MonoBehaviour
     public GameObject brqUI;
     public ToggleGroup brqToggleGroup;
 
-    
+    public TextMeshProUGUI brqQuestionText;
+    public TextMeshPro brqLeftTextAnchor;
+    public TextMeshPro brqRightTextAnchor;
+   private string brqQuestionnaireFilePath = Application.dataPath + "/CSV-Data/brq.csv";
 
+    private IPQ_Question[] brq_questions;
+    private string[] brqItemCodes;
+    private string[] brq_answers;
+    public TextAsset brqCSV;
+    
+    private int brqCurrentQuestion = 0;
+    private bool isBRQDone = false;
 
     // Start is called before the first frame update
     void Start()
@@ -135,6 +146,7 @@ public class QuestionnaireManager : MonoBehaviour
         ipq_questions = new IPQ_Question[lines.Length];
         ipqItemCodes = new string[lines.Length];
         ipq_answers = new string[lines.Length];
+        ipqTimeStamps = new DateTime[lines.Length];
 
         for(int i = 0; i < lines.Length; i++){
             string[] values = lines[i].Split(';');
@@ -147,9 +159,9 @@ public class QuestionnaireManager : MonoBehaviour
     }
 
     private void setIPQQuestion(){
-        ipqQuestionText.text = ipq_questions[currentQuestion].get_question();
-        leftTextAnchor.text = ipq_questions[currentQuestion].get_negative_anchor();
-        rightTextAnchor.text = ipq_questions[currentQuestion].get_positive_anchor();
+        ipqQuestionText.text = ipq_questions[ipqCurrentQuestion].get_question();
+        ipqLeftTextAnchor.text = ipq_questions[ipqCurrentQuestion].get_negative_anchor();
+        ipqRightTextAnchor.text = ipq_questions[ipqCurrentQuestion].get_positive_anchor();
     }
 
     private void resetIPQToggles(){
@@ -165,11 +177,12 @@ public class QuestionnaireManager : MonoBehaviour
         Toggle toggle = ipqToggleGroup.ActiveToggles().FirstOrDefault(); 
 
         if(toggle != null){
-            ipq_answers[currentQuestion] = toggle.name;
+            ipq_answers[ipqCurrentQuestion] = toggle.name;
+            ipqTimeStamps[ipqCurrentQuestion] = DateTime.Now;
             Debug.Log("IPQ Answer: " + toggle.name);
             
-            if(currentQuestion < ipq_questions.Length - 1){
-                currentQuestion++;
+            if(ipqCurrentQuestion < ipq_questions.Length - 1){
+                ipqCurrentQuestion++;
                 resetIPQToggles();
                 setIPQQuestion();
             }else{
@@ -183,10 +196,16 @@ public class QuestionnaireManager : MonoBehaviour
 
     private void writeIPQDataToCSV(){
         writerIPQ = new StreamWriter(ipqQuestionnaireFilePath, true);
+
         string header = string.Join(";",ipqItemCodes);
         writerIPQ.WriteLine(header);
+
         string answers = string.Join(";",ipq_answers);
         writerIPQ.WriteLine(answers);
+
+        string timestamps = string.Join(";",ipqTimeStamps);
+        writerIPQ.WriteLine(timestamps);
+
         writerIPQ.Close();
         Debug.Log("IPQ data written to CSV");
     }
