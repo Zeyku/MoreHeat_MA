@@ -13,6 +13,7 @@ public class QuestionnaireManager : MonoBehaviour
     private TextWriter writerThermalSensation;
     private TextWriter writerThermalComfort;
     private TextWriter writerIPQ;
+    private TextWriter writerBRQ;
 
     //thermal sensation questionnaire
     [Header("Thermal Sensation Questionnaire")]
@@ -42,7 +43,7 @@ public class QuestionnaireManager : MonoBehaviour
     public TextMeshPro ipqRightTextAnchor;
     private string ipqQuestionnaireFilePath = Application.dataPath + "/CSV-Data/ipq.csv";
 
-    private IPQ_Question[] ipq_questions;
+    private Q_Question[] ipq_questions;
     private string[] ipqItemCodes;
     private string[] ipq_answers;
     private DateTime[] ipqTimeStamps;
@@ -59,11 +60,12 @@ public class QuestionnaireManager : MonoBehaviour
     public TextMeshProUGUI brqQuestionText;
     public TextMeshPro brqLeftTextAnchor;
     public TextMeshPro brqRightTextAnchor;
-   private string brqQuestionnaireFilePath = Application.dataPath + "/CSV-Data/brq.csv";
+    private string brqQuestionnaireFilePath = Application.dataPath + "/CSV-Data/brq.csv";
 
-    private IPQ_Question[] brq_questions;
+    private Q_Question[] brq_questions;
     private string[] brqItemCodes;
     private string[] brq_answers;
+    private DateTime[] brqTimeStamps;
     public TextAsset brqCSV;
     
     private int brqCurrentQuestion = 0;
@@ -73,8 +75,12 @@ public class QuestionnaireManager : MonoBehaviour
     void Start()
     {
         loadIPQQuestionsFromFile();
-        setIPQQuestion(); //set first question
+        setIPQQuestion(); //set first ipq question
         
+        loadBRQQuestionsFromFile();
+        setBRQQuestion(); //set first brq question
+
+
         //30 seconds acclimatization period
         Invoke("showThermalSensationQuestionnaire", 10f); //30+90 seconds after start
         Invoke("showThermalSensationQuestionnaire", 20f);  //30+180 seconds after start
@@ -140,10 +146,80 @@ public class QuestionnaireManager : MonoBehaviour
         } 
     }
 
+    private void loadBRQQuestionsFromFile(){
+        string[] lines = brqCSV.text.Split('\n');
+
+        brq_questions = new Q_Question[lines.Length];
+        brqItemCodes = new string[lines.Length];
+        brq_answers = new string[lines.Length];
+        brqTimeStamps = new DateTime[lines.Length];
+
+        for(int i = 0; i < lines.Length; i++){
+            string[] values = lines[i].Split(';');
+            
+            if(values.Length == 4){
+                brqItemCodes[i] = values[0];
+                brq_questions[i] = new Q_Question(values[1], values[2], values[3]);
+            }
+        }
+    }
+
+    private void setBRQQuestion(){
+        brqQuestionText.text = brq_questions[brqCurrentQuestion].get_question();
+        brqLeftTextAnchor.text = brq_questions[brqCurrentQuestion].get_negative_anchor();
+        brqRightTextAnchor.text = brq_questions[brqCurrentQuestion].get_positive_anchor();
+    }
+
+    private void resetBRQToggles(){
+        Toggle[] toggles = brqToggleGroup.GetComponentsInChildren<Toggle>();
+
+        foreach(Toggle toggle in toggles){
+            toggle.isOn = false;
+        }
+    }
+    
+    public void confirmBRQInput(){
+        //gets called on button press in canvas
+        Toggle toggle = brqToggleGroup.ActiveToggles().FirstOrDefault(); 
+
+        if(toggle != null){
+            brq_answers[brqCurrentQuestion] = toggle.name;
+            brqTimeStamps[brqCurrentQuestion] = DateTime.Now;
+            Debug.Log("BRQ Answer: " + toggle.name);
+            
+            if(brqCurrentQuestion < brq_questions.Length - 1){
+                brqCurrentQuestion++;
+                resetBRQToggles();
+                setBRQQuestion();
+            }else{
+                writeBRQDataToCSV();
+                brqUI.SetActive(false);
+                isBRQDone = true;
+            }
+        }
+        
+    }
+
+    private void writeBRQDataToCSV(){
+        writerBRQ = new StreamWriter(brqQuestionnaireFilePath, true);
+
+        string header = string.Join(";",brqItemCodes);
+        writerBRQ.WriteLine(header);
+
+        string answers = string.Join(";",brq_answers);
+        writerBRQ.WriteLine(answers);
+
+        string timestamps = string.Join(";",brqTimeStamps);
+        writerBRQ.WriteLine(timestamps);
+
+        writerBRQ.Close();
+        Debug.Log("BRQ data written to CSV");
+    }
+
     private void loadIPQQuestionsFromFile(){
         string[] lines = ipqCSV.text.Split('\n');
 
-        ipq_questions = new IPQ_Question[lines.Length];
+        ipq_questions = new Q_Question[lines.Length];
         ipqItemCodes = new string[lines.Length];
         ipq_answers = new string[lines.Length];
         ipqTimeStamps = new DateTime[lines.Length];
@@ -153,7 +229,7 @@ public class QuestionnaireManager : MonoBehaviour
             
             if(values.Length == 4){
                 ipqItemCodes[i] = values[0];
-                ipq_questions[i] = new IPQ_Question(values[1], values[2], values[3]);
+                ipq_questions[i] = new Q_Question(values[1], values[2], values[3]);
             }
         }
     }
@@ -189,6 +265,7 @@ public class QuestionnaireManager : MonoBehaviour
                 writeIPQDataToCSV();
                 ipqUI.SetActive(false);
                 isIPQDone = true;
+                brqUI.SetActive(true);
             }
         }
         
@@ -231,13 +308,13 @@ public class QuestionnaireManager : MonoBehaviour
     }
 }
 
-public class IPQ_Question
+public class Q_Question
 {
     private string question;
     private string anchor_negative;
     private string anchor_positive;
 
-    public IPQ_Question(string question, string anchor_negative, string anchor_positive)
+    public Q_Question(string question, string anchor_negative, string anchor_positive)
     {
         this.question = question;
         this.anchor_negative = anchor_negative;
