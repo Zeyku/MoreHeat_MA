@@ -71,6 +71,9 @@ public class QuestionnaireManager : MonoBehaviour
     private int brqCurrentQuestion = 0;
     private bool isBRQDone = false;
 
+    public delegate void QuestionnaireDone();
+    public static event QuestionnaireDone OnQuestionnaireDone;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -195,6 +198,7 @@ public class QuestionnaireManager : MonoBehaviour
                 writeBRQDataToCSV();
                 brqUI.SetActive(false);
                 isBRQDone = true;
+                OnQuestionnaireDone?.Invoke();
             }
         }
         
