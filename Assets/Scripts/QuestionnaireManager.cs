@@ -6,6 +6,7 @@ using TMPro;
 using System.IO;
 using System;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class QuestionnaireManager : MonoBehaviour
 {
@@ -15,11 +16,15 @@ public class QuestionnaireManager : MonoBehaviour
     private TextWriter writerIPQ;
     private TextWriter writerBRQ;
 
+    private int sceneCounter;
+    private int playerID;
+    private int conditionIndex;
+
     //thermal sensation questionnaire
     [Header("Thermal Sensation Questionnaire")]
     public Slider slider;
     public GameObject thermalSensationUI;
-    private string thermalSensationQuestionnaireFilePath = Application.dataPath + "/CSV-Data/thermalSensation.csv";
+    private string thermalSensationQuestionnaireFilePath;
     private float[] thermalSensationValues = new float[3];
     private DateTime[] thermalSensationTimeStamps = new DateTime[3];
     private int thermalSensationCounter = 0;
@@ -29,7 +34,7 @@ public class QuestionnaireManager : MonoBehaviour
     //thermal comfort questionnaire
     [Header("Thermal Comfort Questionnaire")]
     public GameObject thermalComfortUI;
-    private string thermalComfortQuestionnaireFilePath = Application.dataPath + "/CSV-Data/thermalComfort.csv";
+    private string thermalComfortQuestionnaireFilePath;
 
     private bool isThermalComfortDone = false;
     public ToggleGroup thermalComfortToggleGroup;
@@ -41,7 +46,7 @@ public class QuestionnaireManager : MonoBehaviour
     public TextMeshProUGUI ipqQuestionText;
     public TextMeshPro ipqLeftTextAnchor;
     public TextMeshPro ipqRightTextAnchor;
-    private string ipqQuestionnaireFilePath = Application.dataPath + "/CSV-Data/ipq.csv";
+    private string ipqQuestionnaireFilePath;
 
     private Q_Question[] ipq_questions;
     private string[] ipqItemCodes;
@@ -60,7 +65,7 @@ public class QuestionnaireManager : MonoBehaviour
     public TextMeshProUGUI brqQuestionText;
     public TextMeshPro brqLeftTextAnchor;
     public TextMeshPro brqRightTextAnchor;
-    private string brqQuestionnaireFilePath = Application.dataPath + "/CSV-Data/brq.csv";
+    private string brqQuestionnaireFilePath;
 
     private Q_Question[] brq_questions;
     private string[] brqItemCodes;
@@ -77,6 +82,15 @@ public class QuestionnaireManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sceneCounter = PlayerPrefs.GetInt("sceneCounter");
+        playerID = PlayerPrefs.GetInt("playerID");
+        conditionIndex = PlayerPrefs.GetInt("s"+sceneCounter);
+
+        thermalSensationQuestionnaireFilePath = Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex + "thermalSensation.csv";
+        thermalComfortQuestionnaireFilePath = Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex + "thermalComfort.csv";
+        ipqQuestionnaireFilePath = Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex + "ipq.csv";
+        brqQuestionnaireFilePath = Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex + "brq.csv";
+
         loadIPQQuestionsFromFile();
         setIPQQuestion(); //set first ipq question
         
@@ -198,7 +212,13 @@ public class QuestionnaireManager : MonoBehaviour
                 writeBRQDataToCSV();
                 brqUI.SetActive(false);
                 isBRQDone = true;
+                //invoke event for saving cube game data (received in CubeGameManager)
                 OnQuestionnaireDone?.Invoke();
+                
+                //setup next scene from latin square by code
+                sceneCounter++;
+                string sceneCodeToLoad = "s" + sceneCounter;
+                SceneManager.LoadScene(sceneCodeToLoad);
             }
         }
         
