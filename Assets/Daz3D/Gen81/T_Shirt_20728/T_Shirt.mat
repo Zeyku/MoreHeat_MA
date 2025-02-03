@@ -152,7 +152,7 @@ Material:
     - _IndexOfRefraction: 1.5
     - _IndexOfRefractionWeight: 0
     - _Metallic: 0
-    - _Normal: 1
+    - _Normal: 2
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Roughness: 1

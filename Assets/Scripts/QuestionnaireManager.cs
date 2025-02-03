@@ -10,12 +10,18 @@ using UnityEngine.SceneManagement;
 
 public class QuestionnaireManager : MonoBehaviour
 {
-    
+    //writers for different questionnaires
     private TextWriter writerThermalSensation;
     private TextWriter writerThermalComfort;
     private TextWriter writerIPQ;
     private TextWriter writerBRQ;
 
+    //start and end timestamps of the condition
+    private TextWriter writerStartEndTimestamps;
+    private string startEndTimestampsFilePath;
+    private DateTime[] startEndTimestamps = new DateTime[2];
+
+    //scene counter and player ID
     private int sceneCounter;
     private int playerID;
     private int conditionIndex;
@@ -85,11 +91,13 @@ public class QuestionnaireManager : MonoBehaviour
         sceneCounter = PlayerPrefs.GetInt("sceneCounter");
         playerID = PlayerPrefs.GetInt("playerID");
         conditionIndex = PlayerPrefs.GetInt("s"+sceneCounter);
+        startEndTimestamps[0] = DateTime.Now;
 
         thermalSensationQuestionnaireFilePath = Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex + "thermalSensation.csv";
         thermalComfortQuestionnaireFilePath = Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex + "thermalComfort.csv";
         ipqQuestionnaireFilePath = Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex + "ipq.csv";
         brqQuestionnaireFilePath = Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex + "brq.csv";
+        startEndTimestampsFilePath = Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex + "startEndTimestamps.csv";
 
         loadIPQQuestionsFromFile();
         setIPQQuestion(); //set first ipq question
@@ -214,11 +222,16 @@ public class QuestionnaireManager : MonoBehaviour
                 isBRQDone = true;
                 //invoke event for saving cube game data (received in CubeGameManager)
                 OnQuestionnaireDone?.Invoke();
+
+                //save end timestamp and write to csv
+                startEndTimestamps[1] = DateTime.Now;
+                writeStartEndTimestamps();
                 
-                //setup next scene from latin square by code
+                //setup next scene from latin square by scene-code
                 sceneCounter++;
-                string sceneCodeToLoad = "s" + sceneCounter;
-                SceneManager.LoadScene(sceneCodeToLoad);
+                string sceneCode = "s" + sceneCounter;
+                int sceneToLoad = PlayerPrefs.GetInt(sceneCode);
+                SceneManager.LoadScene(sceneToLoad);
             }
         }
         
@@ -329,6 +342,15 @@ public class QuestionnaireManager : MonoBehaviour
         writerThermalSensation.WriteLine(answers + ";" + timestamps);
         writerThermalSensation.Close();
         Debug.Log("Thermal Sensation data written to CSV");
+    }
+
+    private void writeStartEndTimestamps(){
+        string header = "start;end";
+        writerStartEndTimestamps = new StreamWriter(startEndTimestampsFilePath, true);
+        writerStartEndTimestamps.WriteLine(header);
+        writerStartEndTimestamps.WriteLine(startEndTimestamps[0] + ";" + startEndTimestamps[1]);
+        writerStartEndTimestamps.Close();
+        Debug.Log("Start and End timestamps written to CSV");
     }
 }
 
