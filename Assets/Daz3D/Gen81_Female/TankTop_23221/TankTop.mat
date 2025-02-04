@@ -71,7 +71,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 49a786ed00b4fc94c8c8456d77cafb43, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RoughnessMap:
@@ -148,11 +148,11 @@ Material:
     - _GlossyAnisotropy: 0
     - _GlossyLayeredWeight: 0.1504425
     - _Height: 2
-    - _HeightOffset: 0.25
+    - _HeightOffset: -1
     - _IndexOfRefraction: 1.5
     - _IndexOfRefractionWeight: 0
     - _Metallic: 0
-    - _Normal: 1
+    - _Normal: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Roughness: 1

@@ -10,6 +10,12 @@ public class StudyManager : MonoBehaviour
     public TextAsset latinSquareCSV;
     public int playerID;
 
+    public enum Gender{
+        male,
+        female
+    }
+
+    [SerializeField] Gender gender;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +23,8 @@ public class StudyManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("playerID", playerID);
         PlayerPrefs.SetInt("sceneCounter", 1);
+        PlayerPrefs.SetString("gender",gender.ToString());
+        
         loadLatinSquare();
     }
 

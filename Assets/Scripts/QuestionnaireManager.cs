@@ -21,10 +21,15 @@ public class QuestionnaireManager : MonoBehaviour
     private string startEndTimestampsFilePath;
     private DateTime[] startEndTimestamps = new DateTime[2];
 
-    //scene counter and player ID
+    //scene counter and player stuff
     private int sceneCounter;
     private int playerID;
     private int conditionIndex;
+    private string gender;
+
+    //avatars to set active by gender
+    public GameObject maleAvatar;
+    public GameObject femaleAvatar;
 
     //thermal sensation questionnaire
     [Header("Thermal Sensation Questionnaire")]
@@ -91,13 +96,29 @@ public class QuestionnaireManager : MonoBehaviour
         sceneCounter = PlayerPrefs.GetInt("sceneCounter");
         playerID = PlayerPrefs.GetInt("playerID");
         conditionIndex = PlayerPrefs.GetInt("s"+sceneCounter);
+        gender = PlayerPrefs.GetString("gender").ToLower();
         startEndTimestamps[0] = DateTime.Now;
 
-        thermalSensationQuestionnaireFilePath = Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex + "thermalSensation.csv";
-        thermalComfortQuestionnaireFilePath = Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex + "thermalComfort.csv";
-        ipqQuestionnaireFilePath = Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex + "ipq.csv";
-        brqQuestionnaireFilePath = Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex + "brq.csv";
-        startEndTimestampsFilePath = Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex + "startEndTimestamps.csv";
+        setCorrectAvatar(gender);
+
+        string directoryPath =  Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex+"/";
+        if(!Directory.Exists(directoryPath)){
+            Directory.CreateDirectory(directoryPath);
+        }
+        string thermalSensationFileName = "thermalSensation.csv";
+        thermalSensationQuestionnaireFilePath = Path.Combine(directoryPath, thermalSensationFileName);
+
+        string thermalComfortFileName = "thermalComfort.csv";
+        thermalComfortQuestionnaireFilePath = Path.Combine(directoryPath, thermalComfortFileName);
+
+        string ipqFileName = "ipq.csv";
+        ipqQuestionnaireFilePath = Path.Combine(directoryPath, ipqFileName);
+
+        string brqFileName = "brq.csv";
+        brqQuestionnaireFilePath = Path.Combine(directoryPath, brqFileName);
+
+        string startEndTimestampsFileName = "startEndTimestamps.csv";
+        startEndTimestampsFilePath = Path.Combine(directoryPath, startEndTimestampsFileName);
 
         loadIPQQuestionsFromFile();
         setIPQQuestion(); //set first ipq question
@@ -123,6 +144,15 @@ public class QuestionnaireManager : MonoBehaviour
     }
 
     void OnDisable(){
+    }
+
+    private void setCorrectAvatar(string gender){
+        if(gender == "male"){
+            maleAvatar.SetActive(true);
+        }
+        if(gender == "female"){
+            femaleAvatar.SetActive(true);
+        }
     }
 
     private void showThermalSensationQuestionnaire(){
