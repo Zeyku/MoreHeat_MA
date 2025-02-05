@@ -23,7 +23,7 @@ public class CubeGameManager : MonoBehaviour
 
     private int cubeAmount = 0;
     private int sortedCubesAmount = 0;
-    private string pathCubeGame = Application.dataPath + "/CSV-Data/CubeGame.csv";
+    private string pathCubeGame;
 
     private List<DateTime> finishedRoundTimeStamps = new List<DateTime>();
     private TextWriter writerCubeGame;
@@ -31,6 +31,7 @@ public class CubeGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pathCubeGame = Application.dataPath + String.Format("/CSV-Data/CubeGame_playerID{0}_sceneCounter{1}.csv",PlayerPrefs.GetInt("playerID"),PlayerPrefs.GetInt("sceneCounter"));
         GenerateGrid();
     }
 
@@ -65,8 +66,8 @@ public class CubeGameManager : MonoBehaviour
         }
     }
 
-    private void writeCubeGameTimestampsToCSV(){
-        writerCubeGame = new StreamWriter(pathCubeGame);
+    public void writeCubeGameTimestampsToCSV(){
+        writerCubeGame = new StreamWriter(pathCubeGame,true);
         writerCubeGame.WriteLine("Finished Round Timestamp");
         foreach (DateTime timestamp in finishedRoundTimeStamps){
             writerCubeGame.WriteLine(timestamp);

@@ -21818,6 +21818,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 291047870}
+    - target: {fileID: 3533786432694740862, guid: 9b4605142c7ba574bb886c93768ad8a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4229889952821644058, guid: 9b4605142c7ba574bb886c93768ad8a8,
         type: 3}
       propertyPath: m_Mesh
@@ -25771,6 +25776,11 @@ PrefabInstance:
       propertyPath: femaleAvatar
       value: 
       objectReference: {fileID: 2095877185}
+    - target: {fileID: 1057443836713795384, guid: fd38ea5a6308a024fac4fe11b6919bfb,
+        type: 3}
+      propertyPath: finishScreen
+      value: 
+      objectReference: {fileID: 1974692329}
     - target: {fileID: 1057443836713795384, guid: fd38ea5a6308a024fac4fe11b6919bfb,
         type: 3}
       propertyPath: brqToggleGroup
@@ -32583,6 +32593,12 @@ Transform:
   - {fileID: 943029505}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1974692329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3533786432694740862, guid: 9b4605142c7ba574bb886c93768ad8a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1335987037}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1975555979
 GameObject:
   m_ObjectHideFlags: 0

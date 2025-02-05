@@ -26,6 +26,10 @@ public class QuestionnaireManager : MonoBehaviour
     private int playerID;
     private int conditionIndex;
     private string gender;
+    
+
+    //finish screen
+    public GameObject finishScreen;
 
     //avatars to set active by gender
     public GameObject maleAvatar;
@@ -94,15 +98,19 @@ public class QuestionnaireManager : MonoBehaviour
     void Start()
     {
         sceneCounter = PlayerPrefs.GetInt("sceneCounter");
+        Debug.Log("Scene Counter on START(): " + sceneCounter);
         playerID = PlayerPrefs.GetInt("playerID");
         conditionIndex = PlayerPrefs.GetInt("s"+sceneCounter);
         gender = PlayerPrefs.GetString("gender").ToLower();
+
+        
         startEndTimestamps[0] = DateTime.Now;
 
         setCorrectAvatar(gender);
 
-        string directoryPath =  Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex+"/";
+        string directoryPath =  Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex;
         if(!Directory.Exists(directoryPath)){
+            Debug.Log("Directory does not exist, creating directory");
             Directory.CreateDirectory(directoryPath);
         }
         string thermalSensationFileName = "thermalSensation.csv";
@@ -120,6 +128,9 @@ public class QuestionnaireManager : MonoBehaviour
         string startEndTimestampsFileName = "startEndTimestamps.csv";
         startEndTimestampsFilePath = Path.Combine(directoryPath, startEndTimestampsFileName);
 
+        string cubeGameFileName = "cubeGame.csv";
+        string cubeGameFilePath = Path.Combine(directoryPath, cubeGameFileName);
+
         loadIPQQuestionsFromFile();
         setIPQQuestion(); //set first ipq question
         
@@ -129,8 +140,8 @@ public class QuestionnaireManager : MonoBehaviour
 
         //30 seconds acclimatization period
         Invoke("showThermalSensationQuestionnaire", 10f); //30+90 seconds after start
-        Invoke("showThermalSensationQuestionnaire", 20f);  //30+180 seconds after start
-        Invoke("showThermalSensationQuestionnaire", 30f);  //30+270 seconds after start
+        Invoke("showThermalSensationQuestionnaire", 30f);  //30+180 seconds after start
+        Invoke("showThermalSensationQuestionnaire", 50f);  //30+270 seconds after start
         
     }
 
@@ -258,10 +269,22 @@ public class QuestionnaireManager : MonoBehaviour
                 writeStartEndTimestamps();
                 
                 //setup next scene from latin square by scene-code
-                sceneCounter++;
-                string sceneCode = "s" + sceneCounter;
-                int sceneToLoad = PlayerPrefs.GetInt(sceneCode);
-                SceneManager.LoadScene(sceneToLoad);
+
+                if(sceneCounter < 4){
+                    Debug.Log("Scene Counter kleiner 4: " + sceneCounter);
+                    sceneCounter+=1;
+                    Debug.Log("Scene Counter after +1: " + sceneCounter);
+                    PlayerPrefs.SetInt("sceneCounter", sceneCounter);
+                    Debug.Log("Check if settingInt worked: " + PlayerPrefs.GetInt("sceneCounter"));
+                    string sceneCode = "s" + sceneCounter;
+                    Debug.Log("Scene Code: " + sceneCode);
+                    int sceneToLoad = PlayerPrefs.GetInt(sceneCode);
+                    Debug.Log("Scene to load: " + sceneToLoad);
+                    SceneManager.LoadScene(sceneToLoad);
+                }else{
+                    finishScreen.SetActive(true);
+                }
+                
             }
         }
         

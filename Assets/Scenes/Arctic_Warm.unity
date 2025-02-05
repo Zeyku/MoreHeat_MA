@@ -13810,6 +13810,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 209089111}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &882380114 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3533786432694740862, guid: 9b4605142c7ba574bb886c93768ad8a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1335987037}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &882797568
 GameObject:
   m_ObjectHideFlags: 0
@@ -25870,6 +25876,11 @@ PrefabInstance:
       propertyPath: femaleAvatar
       value: 
       objectReference: {fileID: 255939928}
+    - target: {fileID: 1057443836713795384, guid: fd38ea5a6308a024fac4fe11b6919bfb,
+        type: 3}
+      propertyPath: finishScreen
+      value: 
+      objectReference: {fileID: 882380114}
     - target: {fileID: 1057443836713795384, guid: fd38ea5a6308a024fac4fe11b6919bfb,
         type: 3}
       propertyPath: brqToggleGroup
