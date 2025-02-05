@@ -139,9 +139,9 @@ public class QuestionnaireManager : MonoBehaviour
 
 
         //30 seconds acclimatization period
-        Invoke("showThermalSensationQuestionnaire", 10f); //30+90 seconds after start
-        Invoke("showThermalSensationQuestionnaire", 30f);  //30+180 seconds after start
-        Invoke("showThermalSensationQuestionnaire", 50f);  //30+270 seconds after start
+        Invoke("showThermalSensationQuestionnaire", 30f); //30+90 seconds after start
+        Invoke("showThermalSensationQuestionnaire", 60f);  //30+180 seconds after start
+        Invoke("showThermalSensationQuestionnaire", 90f);  //30+270 seconds after start
         
     }
 
