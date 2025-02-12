@@ -27,6 +27,9 @@ public class QuestionnaireManager : MonoBehaviour
     private int conditionIndex;
     private string gender;
     private float playerHeight;
+    private float tableHeight;
+
+    public GameObject table;
     
 
     //finish screen
@@ -95,6 +98,9 @@ public class QuestionnaireManager : MonoBehaviour
     public delegate void QuestionnaireDone();
     public static event QuestionnaireDone OnQuestionnaireDone;
 
+    public delegate void TableReadyForCubeGame();
+    public static event TableReadyForCubeGame OnTableReadyForCubeGame;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,7 +110,13 @@ public class QuestionnaireManager : MonoBehaviour
         conditionIndex = PlayerPrefs.GetInt("s"+sceneCounter);
         gender = PlayerPrefs.GetString("gender").ToLower();
         playerHeight = PlayerPrefs.GetFloat("playerHeight");
-        
+        tableHeight = PlayerPrefs.GetFloat("tableHeight");
+
+        //set table height y position
+        table.transform.position = new Vector3(table.transform.position.x, tableHeight, table.transform.position.z);
+        OnTableReadyForCubeGame?.Invoke();
+
+
         startEndTimestamps[0] = DateTime.Now;
 
         setCorrectAvatar(gender);

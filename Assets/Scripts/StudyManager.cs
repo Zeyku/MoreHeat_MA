@@ -11,6 +11,7 @@ public class StudyManager : MonoBehaviour
     public int playerID;
 
     public float playerHeight;
+    public float tableHeight;
 
     public enum Gender{
         male,
@@ -27,6 +28,7 @@ public class StudyManager : MonoBehaviour
         PlayerPrefs.SetInt("sceneCounter", 1);
         PlayerPrefs.SetString("gender",gender.ToString());
         PlayerPrefs.SetFloat("playerHeight", playerHeight);
+        PlayerPrefs.SetFloat("tableHeight", tableHeight);
 
         loadLatinSquare();
     }

@@ -27294,6 +27294,11 @@ PrefabInstance:
       objectReference: {fileID: 1178630712}
     - target: {fileID: 1057443836713795384, guid: fd38ea5a6308a024fac4fe11b6919bfb,
         type: 3}
+      propertyPath: table
+      value: 
+      objectReference: {fileID: 5475339733149261665}
+    - target: {fileID: 1057443836713795384, guid: fd38ea5a6308a024fac4fe11b6919bfb,
+        type: 3}
       propertyPath: slider
       value: 
       objectReference: {fileID: 1558946085}

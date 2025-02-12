@@ -10121,8 +10121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   latinSquareCSV: {fileID: 4900000, guid: cd2cd99790386dc4b87cf6098c5c7bca, type: 3}
-  playerID: 1
+  playerID: 2
   playerHeight: 1.83
+  tableHeight: 1
   gender: 0
 --- !u!1 &2108188671
 GameObject:

@@ -32,7 +32,6 @@ public class CubeGameManager : MonoBehaviour
     void Start()
     {
         pathCubeGame = Application.dataPath + String.Format("/CSV-Data/CubeGame_playerID{0}_sceneCounter{1}.csv",PlayerPrefs.GetInt("playerID"),PlayerPrefs.GetInt("sceneCounter"));
-        GenerateGrid();
     }
 
     // Update is called once per frame
@@ -44,11 +43,13 @@ public class CubeGameManager : MonoBehaviour
      private void OnEnable() {
         SortHitboxCollider.OnCubeSorted += UpdateSortedCubesAmount;
         QuestionnaireManager.OnQuestionnaireDone += writeCubeGameTimestampsToCSV;
+        QuestionnaireManager.OnTableReadyForCubeGame += GenerateGrid;
     }
 
     private void OnDisable() {
         SortHitboxCollider.OnCubeSorted -= UpdateSortedCubesAmount;
         QuestionnaireManager.OnQuestionnaireDone -= writeCubeGameTimestampsToCSV;
+        QuestionnaireManager.OnTableReadyForCubeGame -= GenerateGrid;
     }
 
     private void UpdateSortedCubesAmount(){

@@ -17589,6 +17589,12 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1064183340 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7163933826908243158, guid: 9b4605142c7ba574bb886c93768ad8a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1335987037}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1066678620
 GameObject:
   m_ObjectHideFlags: 0
@@ -25511,6 +25517,11 @@ PrefabInstance:
       propertyPath: ipqUI
       value: 
       objectReference: {fileID: 1335987049}
+    - target: {fileID: 1057443836713795384, guid: fd38ea5a6308a024fac4fe11b6919bfb,
+        type: 3}
+      propertyPath: table
+      value: 
+      objectReference: {fileID: 1064183340}
     - target: {fileID: 1057443836713795384, guid: fd38ea5a6308a024fac4fe11b6919bfb,
         type: 3}
       propertyPath: slider
