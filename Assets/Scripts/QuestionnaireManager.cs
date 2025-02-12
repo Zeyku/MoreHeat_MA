@@ -26,6 +26,7 @@ public class QuestionnaireManager : MonoBehaviour
     private int playerID;
     private int conditionIndex;
     private string gender;
+    private float playerHeight;
     
 
     //finish screen
@@ -98,15 +99,19 @@ public class QuestionnaireManager : MonoBehaviour
     void Start()
     {
         sceneCounter = PlayerPrefs.GetInt("sceneCounter");
-        Debug.Log("Scene Counter on START(): " + sceneCounter);
+        
         playerID = PlayerPrefs.GetInt("playerID");
         conditionIndex = PlayerPrefs.GetInt("s"+sceneCounter);
         gender = PlayerPrefs.GetString("gender").ToLower();
-
+        playerHeight = PlayerPrefs.GetFloat("playerHeight");
         
         startEndTimestamps[0] = DateTime.Now;
 
         setCorrectAvatar(gender);
+
+        OVRBody.ResetBodyTrackingCalibration();
+        OVRBody.SuggestBodyTrackingCalibrationOverride(playerHeight);
+
 
         string directoryPath =  Application.dataPath + "/CSV-Data/"+"playerID_" + playerID + "/"+"counter_"+sceneCounter+"condition_"+ conditionIndex;
         if(!Directory.Exists(directoryPath)){
@@ -139,9 +144,9 @@ public class QuestionnaireManager : MonoBehaviour
 
 
         //30 seconds acclimatization period
-        Invoke("showThermalSensationQuestionnaire", 30f); //30+90 seconds after start
-        Invoke("showThermalSensationQuestionnaire", 60f);  //30+180 seconds after start
-        Invoke("showThermalSensationQuestionnaire", 90f);  //30+270 seconds after start
+        Invoke("showThermalSensationQuestionnaire", 120f); //30+90 seconds after start
+        Invoke("showThermalSensationQuestionnaire", 210f);  //30+180 seconds after start
+        Invoke("showThermalSensationQuestionnaire", 300f);  //30+270 seconds after start
         
     }
 
@@ -271,15 +276,10 @@ public class QuestionnaireManager : MonoBehaviour
                 //setup next scene from latin square by scene-code
 
                 if(sceneCounter < 4){
-                    Debug.Log("Scene Counter kleiner 4: " + sceneCounter);
                     sceneCounter+=1;
-                    Debug.Log("Scene Counter after +1: " + sceneCounter);
                     PlayerPrefs.SetInt("sceneCounter", sceneCounter);
-                    Debug.Log("Check if settingInt worked: " + PlayerPrefs.GetInt("sceneCounter"));
                     string sceneCode = "s" + sceneCounter;
-                    Debug.Log("Scene Code: " + sceneCode);
                     int sceneToLoad = PlayerPrefs.GetInt(sceneCode);
-                    Debug.Log("Scene to load: " + sceneToLoad);
                     SceneManager.LoadScene(sceneToLoad);
                 }else{
                     finishScreen.SetActive(true);

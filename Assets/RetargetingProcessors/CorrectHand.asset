@@ -44,7 +44,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _headView: 0
+  _headView: 1
   _isFullBody: 1
   _syncOvrControllersAndHandsSettings:
     _syncOvrOption: 0
