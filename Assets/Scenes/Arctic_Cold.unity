@@ -13949,6 +13949,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1200246816653681910, guid: adf0da735269e4148a00e3c5db9b9611,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549953940141748582, guid: adf0da735269e4148a00e3c5db9b9611,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3153471007845867492, guid: adf0da735269e4148a00e3c5db9b9611,
         type: 3}
       propertyPath: _skeletonProcessors.Array.data[0].Enabled
@@ -14018,6 +14028,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564232712270299491, guid: adf0da735269e4148a00e3c5db9b9611,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233399023643351571, guid: adf0da735269e4148a00e3c5db9b9611,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558259127638666355, guid: adf0da735269e4148a00e3c5db9b9611,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7837512493301687952, guid: adf0da735269e4148a00e3c5db9b9611,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083522385497510382, guid: adf0da735269e4148a00e3c5db9b9611,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070194475598711285, guid: adf0da735269e4148a00e3c5db9b9611,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33749,6 +33789,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2715043134633183969, guid: 18d6e2aae5432c745ad25ded8c4c1d30,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993549779277642961, guid: 18d6e2aae5432c745ad25ded8c4c1d30,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762259267584688303, guid: 18d6e2aae5432c745ad25ded8c4c1d30,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3945583904505858453, guid: 18d6e2aae5432c745ad25ded8c4c1d30,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4120533406241963774, guid: 18d6e2aae5432c745ad25ded8c4c1d30,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33799,6 +33859,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4129157293853759412, guid: 18d6e2aae5432c745ad25ded8c4c1d30,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483745564703726591, guid: 18d6e2aae5432c745ad25ded8c4c1d30,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969943852138768463, guid: 18d6e2aae5432c745ad25ded8c4c1d30,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170313216681491332, guid: 18d6e2aae5432c745ad25ded8c4c1d30,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8520149489374350139, guid: 18d6e2aae5432c745ad25ded8c4c1d30,
         type: 3}
       propertyPath: m_Name
@@ -33829,6 +33909,11 @@ PrefabInstance:
       propertyPath: _skeletonProcessors.Array.data[1].Processor
       value: 
       objectReference: {fileID: 2056570851}
+    - target: {fileID: 9114118477481730848, guid: 18d6e2aae5432c745ad25ded8c4c1d30,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
